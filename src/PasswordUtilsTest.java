@@ -92,7 +92,15 @@ public class PasswordUtilsTest {
         assertEquals(false, actual);
     }
 
-    
+    @Test
+    void testCountSpecials(){
+        //Arrange
+        String password = "dog has 4 legs!";
+        // Act
+        int actual = PasswordUtils.countSpecialCharacters(password);
+        //Assert
+        assertEquals(4, actual);
+    }
     @Test
     void testHasSufficientSpecialCharacters(){
         //Arrange
