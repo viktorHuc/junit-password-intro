@@ -102,10 +102,29 @@ public class PasswordUtilsTest {
         assertEquals(4, actual);
     }
     @Test
-    void testHasSufficientSpecialCharacters(){
+    void testEqualNumberOfHasSufficientSpecialCharacters(){
         //Arrange
-        String password = "";
-        int minimum = 0 ;
+        String password = "dog has 4 legs!";
+        int minimum = 4;
+        // Act
+        boolean actual = PasswordUtils.hasSufficientSpecialCharacters(password, minimum);
+        //Assert
+        assertEquals(true, actual);
+    }
+    @Test
+    void testLessHasSufficientSpecialCharacters(){
+        //Arrange
+        String password = "dog has 4 legs!";
+        int minimum = 3;
+        // Act
+        boolean actual = PasswordUtils.hasSufficientSpecialCharacters(password, minimum);
+        //Assert
+        assertEquals(true, actual);
+    }
+    void testOverHasSufficientSpecialCharacters(){
+        //Arrange
+        String password = "dog has 4 legs!";
+        int minimum = 5;
         // Act
         boolean actual = PasswordUtils.hasSufficientSpecialCharacters(password, minimum);
         //Assert
