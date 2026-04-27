@@ -51,8 +51,18 @@ public class PasswordUtils {
     public static boolean containsTriple(String password) {
     // TODO: Make tests FIRST, then implement the method
     // Please have your tests in a separate commit from the implementation
-    return false;
+    
+    for (int i = 0; i < password.length() - 2; i++) {
+            char first = password.charAt(i);
+            char second = password.charAt(i + 1);
+            char third = password.charAt(i + 2);
+            if (first == second && second == third) {
+                return true;
+            } 
+        }
+        return false;
     }
+    
 
     /**
     * Returns the number of special characters in the password.
